@@ -12,10 +12,10 @@ export class Joke extends Component<Jokes> {
         return (
             <div>
                 <h3 style={{ display: this.props.question ? "block" : "none" }}>
-                    Question:
+                    Question: {this.props.question}
                 </h3>
                 <h3>
-                    Answer:
+                    Answer: {this.props.punchLine}
                 </h3>
             </div>
         )

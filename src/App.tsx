@@ -1,34 +1,51 @@
-import React from 'react';
-import Footer from './components/Footer';
-import Header from './components/Header';
-import MainContent from './components/MainContent';
-import DateTime from './components/Date-Time';
-import ContactCard from './components/Contact-Card';
+import React, { Component } from 'react';
 import './App.css';
-import Joke from './components/Joke';
+import { todosData } from './components/todosData';
+import TodoItem from './components/TodoItem';
 
-function App() {
-  return (
-    <div className="App">
-      <Joke />
-      {/* <ContactCard name='' imgUrl='' phone='' email='' /> */}
-      {/* <Header />
-      <MainContent />
-      <DateTime />
-      <nav>
-        <h1>Hello there</h1>
-        <ul>
-          <li>Thing 1</li>
-          <li>Thing 2</li>
-          <li>Thing 3</li>
-        </ul>
-      </nav>
-      <main>
-        <p>This is my content</p>
-      </main>
-      <Footer /> */}
-    </div>
-  );
+interface todos {
+  todos: todo[];
+}
+interface todo {
+  id: number;
+  text: string;
+  completed: boolean;
+}
+
+export class App extends Component<{}, todos> {
+  constructor(props: any) {
+    super(props);
+    this.state = {
+      todos: todosData
+    }
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(id: number) {
+    this.setState(prevState => {
+      const updateTodos = prevState.todos.map(todo => {
+        if (todo.id === id) {
+          todo.completed = !todo.completed;
+          return todo;
+        }
+        return todo
+      })
+      console.log(updateTodos);
+      return {
+        todos: updateTodos
+      }
+    })
+    console.log(this.state);
+    console.log('id', id);
+  }
+  render() {
+    const todoItems = this.state.todos.map(item => <TodoItem key={item.id} item={item} handleChange={this.handleChange} />)
+    return (
+      <div>
+        {todoItems}
+      </div>
+    )
+  }
 }
 
 export default App;

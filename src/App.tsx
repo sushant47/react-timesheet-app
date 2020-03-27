@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import { todosData } from './components/todosData';
 import TodoItem from './components/TodoItem';
+import { Starwars } from './components/Starwars';
+import { Form } from './components/Form';
+import { TravelForm } from './components/TravelForm';
 
 interface todos {
   todos: todo[];
@@ -26,7 +29,6 @@ export class App extends Component<{}, todos> {
       const updateTodos = prevState.todos.map(todo => {
         if (todo.id === id) {
           todo.completed = !todo.completed;
-          return todo;
         }
         return todo
       })
@@ -42,7 +44,9 @@ export class App extends Component<{}, todos> {
     const todoItems = this.state.todos.map(item => <TodoItem key={item.id} item={item} handleChange={this.handleChange} />)
     return (
       <div>
-        {todoItems}
+        {/* {todoItems} */}
+        {/* <Form /> */}
+        <TravelForm />
       </div>
     )
   }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { DiscoDashboard } from './components/DiscoDashboard';
+import { DiscoDashboard } from './components/disco/DiscoDashboard';
 
 export class App extends Component<{}, {}> {
   constructor(props: {}) {
@@ -9,10 +9,7 @@ export class App extends Component<{}, {}> {
   }
   render() {
     return (
-      <div>
-        <DiscoDashboard />
-        <br />
-      </div>
+      <DiscoDashboard />
     )
   }
 }

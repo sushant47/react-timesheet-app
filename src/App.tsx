@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { MemeGenerator } from './components/MemeGenerator';
-import { MemeHeader } from './components/MemeHeader';
+import { DiscoDashboard } from './components/DiscoDashboard';
 
 export class App extends Component<{}, {}> {
   constructor(props: {}) {
@@ -11,9 +10,8 @@ export class App extends Component<{}, {}> {
   render() {
     return (
       <div>
-        <MemeHeader />
+        <DiscoDashboard />
         <br />
-        <MemeGenerator />
       </div>
     )
   }

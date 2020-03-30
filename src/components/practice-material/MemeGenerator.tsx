@@ -38,7 +38,7 @@ export class MemeGenerator extends Component<{}, memeheader> {
             .then(response => {
                 const { memes } = response.data;
                 console.log(memes[0]);
-                this.setState({ allMemeImgs: memes })
+                this.setState({ allMemeImgs: memes } as any)
             })
     }
     // private handleSubmit = async (
